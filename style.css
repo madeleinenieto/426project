@@ -1,0 +1,39 @@
+
+
+#title{
+    color: purple;
+    font-size: 80px;
+    /* font-family: "Comic Sans MS", "Comic Cans", cursive; */
+
+}
+
+#subtitle{
+    color: black;
+    font-size: 40px;
+}
+
+#canvas1{
+    border: 1px solid black;
+    background-color: steelblue;
+    height:400px;
+    width:600px;
+    margin:28px;
+}
+
+#ramses{
+    height:50px;
+    width:80px;
+}
+
+#artsyGhost{
+    height:50px;
+    width:80px;
+}
+
+#footer {
+    clear: both;
+    border-top: 1px solid #ddd;
+    padding: 20px 0;
+    font-size: .9em;
+    color: #999;
+}
