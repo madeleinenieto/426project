@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!--npx browser-sync start -sw -->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+        <title>COMP 426 Final Project</title>
+ 
+        <!-- Include links to CSS stylesheets below -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css" />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <header><center><h1 id = "title">COMP 426 Project</h1><h2 id = "subtitle">Game Title</h2></center></header>
+    <!-- background-color:rgb(115, 204, 255) ; this is carolina blue-->
+    <div id="root"></div>
+    <body style="background-color:lightblue ;"> 
+       <center><img id = "ramses" src = "\characters\ramses.png"></center>
+            <center><canvas id = "canvas1">
+            </canvas></center>
+    </body>
+
+            <!-- <img src = "backgrounds/Trees.png"> -->
+<div id = "footer">
+    <p>Created by: Gillian Montgomery, Madeleine Nieto, Trent Avent</p>
+</div>
+        <!-- Include links to JavaScript files below -->
+            <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+            <script src = "ramses.js"></script>
+            <script src = "render.js"></script>
+
+            <script type="text/javascript" src="crafty-min.js"></script>
+            <script src = "./node_modules/axios/dist/axios.js"></script>
+
+</html>
+
