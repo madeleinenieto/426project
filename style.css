@@ -2,7 +2,7 @@
 
 #title{
     color: purple;
-    font-size: 80px;
+    font-size: 70px;
     /* font-family: "Comic Sans MS", "Comic Cans", cursive; */
 
 }
@@ -20,9 +20,20 @@
     margin:28px;
 }
 
+#Trees{
+    
+    position: absolute;
+    top: 22%;
+    left: 32.1%;
+    width:600px;
+}
+
 #ramses{
     height:50px;
     width:80px;
+    position: absolute;
+    top:70.5%;
+    left:32%;
 }
 
 #artsyGhost{
