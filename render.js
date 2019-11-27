@@ -1,14 +1,14 @@
 
-let canvas = document.getElementById('canvas1');
+// let canvas = document.getElementById('canvas1');
     //flags 
-    let up = false;
-    let right = false;
-    let left = false;
+    // let up = false;
+    // let right = false;
+    // let left = false;
 
-    let initalX = -1 ;
-    let initalY = 125;
+    // let initalX = -1 ;
+    // let initalY = 125;
 
-    let speed = 6;
+    // let speed = 6;
 
 
     // canvas.addEventListener('keydown',function(event){
@@ -40,24 +40,24 @@ let canvas = document.getElementById('canvas1');
     //     }
     // });
 
-    function draw(){
-        if(up){
-            initalY-=speed;
-        }
-        if(left){
-            initalX-=speed;
-        }
-        if(right){
-            initalX+=speed;
-        }
-    }
-    window.requestAnimationFrame(draw);
+    // function draw(){
+    //     if(up){
+    //         initalY-=speed;
+    //     }
+    //     if(left){
+    //         initalX-=speed;
+    //     }
+    //     if(right){
+    //         initalX+=speed;
+    //     }
+    // }
+    // window.requestAnimationFrame(draw);
 
 
-    let context = canvas.getContext("2d");
+    // let context = canvas.getContext("2d");
 
-    canvas.width=  250;
-    canvas.height = 180;
+    // canvas.width=  250;
+   // canvas.height = 180;
 
     let background = new Image();
     let ramses = new Image();
@@ -80,6 +80,7 @@ let canvas = document.getElementById('canvas1');
         //artsyGhost.controller();
     }    
 
+    function getLeft(){return this.x};
 
 
     $(document).ready(function(){
@@ -96,6 +97,7 @@ let canvas = document.getElementById('canvas1');
                 let newLeft = ((position.left-move_amt < min)?min:position.left-move_amt);
                 $("#ramses").attr("src",'/characters/ramsesLeft.png');
                 $("#ramses").offset({left:newLeft});
+                
             } else if (key == 38){
                 console.log("up");
                 $("#ramses").animate({ top: "-=10"},0);
