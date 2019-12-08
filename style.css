@@ -18,6 +18,7 @@
     height:400px;
     width:600px;
     margin:28px;
+    
 }
 
 #Trees{
@@ -39,6 +40,9 @@
 #artsyGhost{
     height:50px;
     width:80px;
+    position: absolute;
+    bottom:25.5%;
+    right:32%;
 }
 
 #footer {
@@ -47,4 +51,39 @@
     padding: 20px 0;
     font-size: .9em;
     color: #999;
+}
+
+#login-box{
+    border: 3px solid green;
+    height: 300px;
+    width:300px;
+    padding:10px;
+}
+#email{
+    font-size:15px;
+    display:block;
+    margin:10px;
+
+}
+#password{
+    font-size:15px;
+    display: block;
+    margin:10px;
+
+}
+#userLoginBox{
+    border:5px solid springgreen;
+    height:100px;
+    padding:10px;
+}
+.btn{
+margin:10px;
+}
+
+#login_btn{
+    margin:10px;
+    display: block;   
+    align-content:right; 
+    align-items: right;
+    align-self: right;
 }
