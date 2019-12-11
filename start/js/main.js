@@ -223,8 +223,67 @@ PlayState._onHeroVsCoin = function (hero, coin) {
 // entry point
 // =============================================================================
 
+
+startup = function(event) {
+    if ($('#user').val() == "") {
+        let restart = (
+            `
+            <div class="columns is-centered" id="all">
+            <div class="column is-one-quarter has-background-info">
+            <div class="field">
+      <label class="label has-text-white" id="l">Username</label>
+      <div class="control">
+        <input class="input is-danger" type="text" id="user" placeholder="e.g. tarheel1998">
+      </div>
+      <p class="help is-danger has-text-weight-bold">Must enter username!</p>
+    </div>
+    
+    <div class="field is-grouped">
+      <div class="control">
+        <button class="button is-primary" id="begin" onclick="">Start Game!</button>
+      </div>
+    </div>
+    </div>
+    </div>
+            `
+        );
+        $('#game').append(restart);
+        $('#all').remove();
+    } else {
+        $('#all').remove();
+
+        let game = new Phaser.Game(960, 600, Phaser.AUTO, 'game');
+        game.state.add('play', PlayState);
+        game.state.start('play');
+    }
+}
+
 window.onload = function () {
-    let game = new Phaser.Game(960, 600, Phaser.AUTO, 'game');
-    game.state.add('play', PlayState);
-    game.state.start('play');
+
+    const $game = $('#game');
+
+    let signin = (
+        `
+        <div class="columns is-centered" id="all">
+        <div class="column is-one-quarter has-background-info">
+        <div class="field">
+  <label class="label has-text-white" id="l">Username</label>
+  <div class="control">
+    <input class="input" type="text" id="user" placeholder="e.g. tarheel1998">
+  </div>
+</div>
+
+<div class="field is-grouped">
+  <div class="control">
+    <button class="button is-primary" id="begin" onclick="">Start Game!</button>
+  </div>
+</div>
+</div>
+</div>
+        `
+    );
+
+    $game.append(signin);
+
+    $game.on('click', '#begin', startup);
 };

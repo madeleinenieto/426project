@@ -1,10 +1,19 @@
-<!doctype html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>HTML5 games workshop: One-screen platformer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramses Rush</title>
     <meta charset="utf-8">
 
     <script src="js/phaser.min.js"></script>
     <script src="js/main.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <!-- <link rel="stylesheet" href="https://unpkg.com/buefy/dist/buefy.min.css"> -->
+    <link rel="stylesheet" href="styles.css"/>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="node_modules/axios/dist/axios.js"></script>
+    <!-- <script src="https://unpkg.com/buefy/dist/buefy.min.js"></script> -->
 
     <style>
         canvas {
@@ -12,6 +21,56 @@
         }
     </style>
 </head>
+
 <body>
-    <div id="game"></div>
+    <div>
+        <section class="hero backg">
+                <div class="hero-head">
+                        <div class="title has-text-centered has-text-white has-background-info">
+                            Ramses Rush
+                        </div>
+                  </div>
+                <div class="hero-body has-text-centered">
+                      <div id="game"></div>
+                  </div>
+                  <div class="hero-foot">
+                        <div class="content has-text-centered has-text-white has-background-info">
+                            Created by Team Edward: Madeleine Nieto, Gillian Montgomery, Trent Avent
+                            <br>
+                            Powered by Phaser v2.6.2
+                        </div>
+                  </div>
+            </section>
+        </div>
 </body>
+
+
+<!-- <div id="login">
+    <div class="login-card">
+        <div class="card-title">
+            <h1>Ramses Rush Login</h1>
+        </div>
+
+        <div class="content">
+            <form id="login-form">
+                <input id="email" type="email" name="email" title="email" placeholder="Email" required autofocus>
+                <input id="password" type="password" name="password" title="password" placeholder="Password" required>
+
+                <div class="field">
+                    <div class="control">
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="control">
+                        <p id="message"></p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div> -->
+
+
+</html>
