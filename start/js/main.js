@@ -101,7 +101,7 @@ PlayState.preload = function () {
     this.game.load.image('grass:4x1', 'images/brick_4x1.png');
     this.game.load.image('grass:2x1', 'images/brick_2x1.png');
     this.game.load.image('grass:1x1', 'images/brick_1x1.png');
-    this.game.load.image('hero', 'images/ramses.png');
+    this.game.load.image('hero', 'images/rameses_right.png');
     
     this.game.load.image('invisible-wall', 'images/invisible_wall.png');
 
@@ -225,27 +225,102 @@ PlayState._onHeroVsCoin = function (hero, coin) {
 
 
 startup = function(event) {
-    if ($('#user').val() == "") {
+    if (($('#user').val() == "") && ($('#pass').val() != "")) {
+        let x = $('#pass').val();
+        let restart = (
+            `
+    <div class="columns is-centered" id="all">
+    <div class="column is-one-quarter has-background-info">
+    <div class="field">
+<label class="label has-text-white" id="u">Welcome!</label>
+<div class="control">
+<input class="input is-danger" type="text" id="user" placeholder="username">
+<p class="help is-danger has-text-weight-bold">Must enter username!</p>
+</div>
+</div>
+<div class="field">
+<div class="control">
+<input class="input" type="password" id="pass" placeholder="password" value=${x}>
+</div>
+</div>
+
+<div class="field is-grouped">
+<div class="control">
+<button class="button is-success" id="login" onclick="">Login</button>
+</div>
+<div class="control">
+<button class="button is-link" id="sign" onclick="">Sign Up</button>
+</div>
+</div>
+</div>
+</div>
+            `
+        );
+        $('#game').append(restart);
+        $('#all').remove();
+    } else if (($('#pass').val() == "") && ($('#user').val() != "")) {
+        let x = $('#user').val();
         let restart = (
             `
             <div class="columns is-centered" id="all">
-            <div class="column is-one-quarter has-background-info">
-            <div class="field">
-      <label class="label has-text-white" id="l">Username</label>
-      <div class="control">
-        <input class="input is-danger" type="text" id="user" placeholder="e.g. tarheel1998">
-      </div>
-      <p class="help is-danger has-text-weight-bold">Must enter username!</p>
-    </div>
-    
-    <div class="field is-grouped">
-      <div class="control">
-        <button class="button is-primary" id="begin" onclick="">Start Game!</button>
-      </div>
-    </div>
-    </div>
-    </div>
+        <div class="column is-one-quarter has-background-info">
+        <div class="field">
+  <label class="label has-text-white" id="u">Welcome!</label>
+  <div class="control">
+    <input class="input" type="text" id="user" placeholder="username" value=${x}>
+  </div>
+  </div>
+  <div class="field">
+  <div class="control">
+    <input class="input is-danger" type="password" id="pass" placeholder="password">
+    <p class="help is-danger has-text-weight-bold">Must enter password!</p>
+  </div>
+</div>
+
+<div class="field is-grouped">
+  <div class="control">
+    <button class="button is-success" id="login" onclick="">Login</button>
+</div>
+    <div class="control">
+    <button class="button is-link" id="sign" onclick="">Sign Up</button>
+  </div>
+  </div>
+</div>
+</div>
+`
+        );
+        $('#game').append(restart);
+        $('#all').remove();
+    } else if (($('#pass').val() == "") && ($('#user').val() == "")) {
+        let restart = (
             `
+            <div class="columns is-centered" id="all">
+        <div class="column is-one-quarter has-background-info">
+        <div class="field">
+  <label class="label has-text-white" id="u">Welcome!</label>
+  <div class="control">
+    <input class="input is-danger" type="text" id="user" placeholder="username">
+    <p class="help is-danger has-text-weight-bold">Must enter username!</p>
+  </div>
+  </div>
+  <div class="field">
+  <div class="control">
+    <input class="input is-danger" type="password" id="pass" placeholder="password">
+    <p class="help is-danger has-text-weight-bold">Must enter password!</p>
+  </div>
+</div>
+
+<div class="field is-grouped">
+  <div class="control">
+    <button class="button is-success" id="login" onclick="">Login</button>
+</div>
+    <div class="control">
+    <button class="button is-link" id="sign" onclick="">Sign Up</button>
+  </div>
+  </div>
+</div>
+</div>
+`
         );
         $('#game').append(restart);
         $('#all').remove();
@@ -258,8 +333,109 @@ startup = function(event) {
     }
 }
 
-window.onload = function () {
+gamestart = function(event) {
+    $('#all').remove();
 
+    let game = new Phaser.Game(960, 600, Phaser.AUTO, 'game');
+    game.state.add('play', PlayState);
+    game.state.start('play');
+}
+
+sustart = function(event) {
+    if (($('#pass').val() == "") && ($('#user').val() == "") && ($('#fn').val() == "") && ($('#ln').val() == "")) {
+        let s = (
+            `
+            <div class="columns is-centered" id="all">
+            <div class="column is-one-quarter has-background-info">
+            <div class="field">
+      <div class="control">
+      <label class="label has-text-white">Firstname:</label>
+        <input class="input is-danger" type="text" id="fn" placeholder="Firstname">
+        <p class="help is-danger has-text-weight-bold">Must enter Firstname!</p>
+        </div>
+        </div>
+        <div class="field">
+        <div class="control">
+        <label class="label has-text-white" id="n">Lastname:</label>
+        <input class="input is-danger" type="text" id="ln" placeholder="Lastname">
+        <p class="help is-danger has-text-weight-bold">Must enter Lastname!</p>
+      </div>
+      </div>
+      <div class="field">
+      <div class="control">
+      <label class="label has-text-white" id="n">Username:</label>
+        <input class="input is-danger" type="text" id="user" placeholder="username">
+        <p class="help is-danger has-text-weight-bold">Must enter username!</p>
+      </div>
+      </div>
+      <div class="field">
+      <div class="control">
+      <label class="label has-text-white" id="n">Password:</label>
+        <input class="input is-danger" type="password" id="pass" placeholder="password">
+        <p class="help is-danger has-text-weight-bold">Must enter password!</p>
+      </div>
+    </div>
+    
+    <div class="field is-grouped">
+        <div class="control">
+        <button class="button is-link" id="su" onclick="">Begin Game!</button>
+      </div>
+      </div>
+    </div>
+    </div>
+    `
+        );
+        $('#game').append(s);
+        $('#all').remove();
+    } else {
+        gamestart();
+    }
+}
+
+signup = function(event) {
+    let s = (
+        `
+        <div class="columns is-centered" id="all">
+        <div class="column is-one-quarter has-background-info">
+        <div class="field">
+  <div class="control">
+  <label class="label has-text-white">Firstname:</label>
+    <input class="input" type="text" id="fn" placeholder="Firstname">
+    </div>
+    </div>
+    <div class="field">
+    <div class="control">
+    <label class="label has-text-white" id="n">Lastname:</label>
+    <input class="input" type="text" id="ln" placeholder="Lastname">
+  </div>
+  </div>
+  <div class="field">
+  <div class="control">
+  <label class="label has-text-white" id="n">Username:</label>
+    <input class="input" type="text" id="user" placeholder="username">
+  </div>
+  </div>
+  <div class="field">
+  <div class="control">
+  <label class="label has-text-white" id="n">Password:</label>
+    <input class="input" type="password" id="pass" placeholder="password">
+  </div>
+</div>
+
+<div class="field is-grouped">
+    <div class="control">
+    <button class="button is-link" id="su" onclick="">Begin Game!</button>
+  </div>
+  </div>
+</div>
+</div>
+`
+    );
+    $('#game').append(s);
+    $('#all').remove();
+}
+
+window.onload = function () {
     const $game = $('#game');
 
     let signin = (
@@ -267,17 +443,25 @@ window.onload = function () {
         <div class="columns is-centered" id="all">
         <div class="column is-one-quarter has-background-info">
         <div class="field">
-  <label class="label has-text-white" id="l">Username</label>
+  <label class="label has-text-white" id="u">Welcome!</label>
   <div class="control">
-    <input class="input" type="text" id="user" placeholder="e.g. tarheel1998">
+    <input class="input" type="text" id="user" placeholder="username">
+  </div>
+  </div>
+  <div class="field">
+  <div class="control">
+    <input class="input" type="password" id="pass" placeholder="password">
   </div>
 </div>
 
 <div class="field is-grouped">
   <div class="control">
-    <button class="button is-primary" id="begin" onclick="">Start Game!</button>
-  </div>
+    <button class="button is-success" id="login" onclick="">Login</button>
 </div>
+    <div class="control">
+    <button class="button is-link" id="sign" onclick="">Sign Up</button>
+  </div>
+  </div>
 </div>
 </div>
         `
@@ -285,5 +469,9 @@ window.onload = function () {
 
     $game.append(signin);
 
-    $game.on('click', '#begin', startup);
+    $game.on('click', '#login', startup);
+
+    $game.on('click', '#sign', signup);
+
+    $game.on('click', '#su', sustart);
 };
